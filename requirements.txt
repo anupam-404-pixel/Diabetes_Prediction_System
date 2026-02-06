@@ -1,5 +1,4 @@
-Django>=4.2,<5.0
-pandas
+django
 numpy
+pandas
 scikit-learn
-gunicorn
