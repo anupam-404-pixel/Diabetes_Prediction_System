@@ -2,8 +2,17 @@ from django.shortcuts import render
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier
+import os
+from django.conf import settings
+
+CSV_PATH = os.path.join(
+    settings.BASE_DIR,
+    'static',
+    'DiabetesPrediction',
+    'csv file',
+    'diabetes.csv'
+)
 def home(request):
     return render(request, 'home.html')
 
@@ -11,7 +20,7 @@ def predict(request):
     return render(request, 'predict.html')
 
 def result(request):
-    df = pd.read_csv(r'C:\Users\ANUPAM\Downloads\diabetes.csv')
+    df = pd.read_csv(CSV_PATH)
     # df
     X = df.iloc[:, :-1].values
     y = df.iloc[:, -1]
