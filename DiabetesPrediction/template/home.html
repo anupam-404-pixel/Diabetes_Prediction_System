@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url("{% static '\DiabetesPrediction\images\img2.jpg' %}");
+            background-size: cover;
+
+            /*margin: 0;*/
+            /*min-width: 100vh;*/
+            margin-top: 25vh;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+    </style>
+</head>
+<body>
+<!--    <h1>Welcome to my website</h1>-->
+
+<!--    <h2>Predict Your Diabetes </h2>-->
+<!--    <p><label >Age             </label><input type="text"></p>-->
+<!--    <p><label >Blood Glucose Level  </label><input type="text"></p>-->
+<!--    <p><label >Pregnancies(Yes/No)  </label><input type="text"></p>-->
+<!--    <p><label >Blood Pressure       </label><input type="text"></p>-->
+<!--    <p><label >Skin Thickness       </label><input type="text"></p>-->
+<!--    <p><label >Insulin              </label><input type="text"></p>-->
+<!--    <p><label >BMI                  </label><input type="text"></p>-->
+<!--    <p><label >Diabetes Pedigree Function(0-1)</label><input type="text"></p>-->
+
+<!--    <button id="submit">Submit</button>-->
+<!--    <div id="result"></div>-->
+
+    <div align="center">
+        <h1 style="color: white ; font-size: 40px">Welcome to Diabetes Prediction System</h1>
+        <form action="predict">
+            <input style="font-size: 15px ; font-weight: normal ;border-radius: 5px" type="submit"  value="Lets Get Started ">
+        </form>
+    </div>
+</body>
+</html>

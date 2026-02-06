@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Page</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=Macondo&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    /* Mobile phones */
+/*@media (max-width: 600px) {
+    .main {
+        width: 95%;
+        padding: 6%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    span {
+        font-size: 20px;
+    }
+}*/
+    @media (max-width: 600px) {
+    .main {
+        width: 95%;
+        padding: 6%;
+        margin: auto;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    span {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+    /*body {*/
+    /*        display: flex;*/
+    /*        justify-content: center;*/
+    /*        align-items: center;*/
+    /*        margin-top: 25%;*/
+    /*        background-color:#ffe4c4;*/
+    /*    }*/
+    /*    .main{*/
+    /*        position: absolute;*/
+    /*        top: 100px;*/
+    /*        left: 410px;*/
+    /*        width: 800px;*/
+    /*        background-color:#ffffff;*/
+    /*        border-radius: 10px;*/
+
+    /*        padding: 3%;*/
+
+    /*        !*display: flex;*!*/
+    /*        !*justify-content: center;*!*/
+    /*        align-items: center;*/
+
+    /*    }*/
+    body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe4c4;
+}
+
+.main {
+    width: 800px;
+    max-width: 95%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 3%;
+}
+        span{
+            color:firebrick;
+            font-size: 30px;
+            font-weight: bold;
+            display: block;
+            padding: 20px;
+
+        }
+        input[type=submit]{
+            background-color:saddlebrown;
+            border: 2px;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 12px;
+            font-size:20px ;
+        }
+        .data{
+            font-family: "Libertinus Mono", monospace;
+  font-weight: bold;
+  font-style: normal;
+        }
+        .res{
+            font-weight: bold;
+            font-size: 20px;
+            color:darkred;
+            margin: 10px;
+        }
+
+         </style>
+</head>
+<body>
+<!--    <h1>Welcome to Prediction Page</h1>-->
+
+    <!--    <h1>Welcome to my website</h1>-->
+
+<!--    <h2>Predict Your Diabetes </h2>-->
+<!--    <p><label >Age             </label><input type="text"></p>-->
+<!--    <p><label >Blood Glucose Level  </label><input type="text"></p>-->
+<!--    <p><label >Pregnancies(Yes/No)  </label><input type="text"></p>-->
+<!--    <p><label >Blood Pressure       </label><input type="text"></p>-->
+<!--    <p><label >Skin Thickness       </label><input type="text"></p>-->
+<!--    <p><label >Insulin              </label><input type="text"></p>-->
+<!--    <p><label >BMI                  </label><input type="text"></p>-->
+<!--    <p><label >Diabetes Pedigree Function(0-1)</label><input type="text"></p>-->
+
+<!--    <button id="submit">Submit</button>-->
+<!--    <div id="result"></div>-->
+
+<div align="center" class="main">
+    <span>Enter the following information : </span>
+    <form action="{% url 'result' %}" method="post" onsubmit="return validateForm()">
+    {% csrf_token %}
+
+        <table >
+            <tr>
+                <td class="data" align="right">Age : </td>
+                <td align="left"> <input type="text" name="n8"   required></td>
+            </tr>
+
+            <tr>
+                <td class="data"   align="right">Blood Glucose Level : </td>
+                <td align="left"> <input type="text" name="n2" required></td>
+            </tr>
+            <tr>
+                <td class="data"  align="right">Pregancies : </td>
+                <td align="left"> <input type="text" name="n1" required></td>
+            </tr>
+            <tr>
+                <td class="data"  align="right">Blood Pressure : </td>
+                <td align="left"> <input type="text" name="n3" required></td>
+            </tr>
+
+             <tr>
+                <td class="data"  align="right">Skin Thickness : </td>
+                <td align="left"> <input type="text" name="n4" required></td>
+            </tr>
+
+
+
+             <tr>
+                <td class="data"  align="right">Insulin : </td>
+                <td align="left"> <input type="text" name="n5" required></td>
+            </tr>
+
+             <tr>
+                <td class="data"  align="right">BMI : </td>
+                <td align="left"> <input type="text" name="n6" required></td>
+            </tr>
+
+            <tr>
+                <td class="data"  align="right"> Diabetes Pedigree Function(0-1) : </td>
+                <td align="left"> <input type="text" name="n7" required></td>
+            </tr>
+        </table>
+
+        <input type="submit">
+    </form>
+
+    <div class="res">Result : {{result2}}</div>
+</div>
+</body>
+</html>
