@@ -55,8 +55,9 @@ def result(request):
     pred = xgboostmodel.predict(user_data)
     result1 = ""
     if pred == [1]:
-        result1 = "Diabetes Detected"
+        result1 = " Diabetes Detected"
     else:
-        result1 = "No Diabetes Detected"
+        result1 = " No Diabetes Detected"
+
 
     return render(request,'predict.html' , {'result2':result1})
